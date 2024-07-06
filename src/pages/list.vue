@@ -13,16 +13,16 @@
                 :rules="[rules.required, rules.length]"
                 ref="newItemTextField"
                 ></v-text-field>
-                <v-table>
-                    <thead>
+                <v-table class='mt-1' :style="{boxShadow:'0px 2px 4px -1px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, 0.2)), 0px 4px 5px 0px var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, 0.14)), 0px 1px 10px 0px var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, 0.12))'}">
+                    <thead class='text-center' :style="{backgroundColor:'#F3E5F5'}">
                         <tr>
-                            <th>名稱</th>
-                            <th>操作</th>
+                            <th class='text-center'>名稱</th>
+                            <th class='text-center'>操作</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr v-for="(item, i) in items" :key="item.id">
-                            <td>
+                            <td class='text-center py-2'>
                                 <span v-show="!item.edit">{{ item.name }}</span>
                                 <v-text-field
                                 v-show="item.edit"
@@ -33,9 +33,9 @@
                                 ref="editItemTextField"
                                 ></v-text-field>
                             </td>
-                            <td>
+                            <td class='text-center py-2'>
                                 <template v-if="!item.edit">
-                                    <v-btn icon="mdi-pencil" @click="editItem(item.id)"></v-btn>
+                                    <v-btn icon="mdi-pencil" @click="editItem(item.id)" class="mr-3"></v-btn>
                                     <v-btn icon="mdi-delete" @click="delItem(item.id)"></v-btn>
                                 </template>
                                 <template v-else>
@@ -47,21 +47,21 @@
                     </tbody>
                 </v-table>
             </v-col>
-            <v-col cols='12'>
+            <v-col cols='12' class="mt-3">
               <h1 class='text-center'>完成事項</h1>
             </v-col>
             <v-col cols='12'>
-              <v-table>
-                <thead>
-                  <tr>
-                    <th>名稱</th>
-                    <th>操作</th>
+              <v-table :style="{boxShadow:'0px 2px 4px -1px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, 0.2)), 0px 4px 5px 0px var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, 0.14)), 0px 1px 10px 0px var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, 0.12))'}">
+                <thead :style="{backgroundColor:'#F3E5F5'}">
+                  <tr class='text-center'>
+                    <th class='text-center'>名稱</th>
+                    <th class='text-center'>操作</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr v-for='item in finishedItems' :key='item.id'>
-                    <td>{{ item.name }}</td>
-                    <td>
+                    <td class="text-center py-2">{{ item.name }}</td>
+                    <td class="text-center py-2">
                       <v-btn icon='mdi-delete' @click='delFinishItem(item.id)'></v-btn>
                     </td>
                   </tr>

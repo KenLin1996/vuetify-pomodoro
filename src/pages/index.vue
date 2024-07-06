@@ -1,15 +1,29 @@
 <template>
-    <v-container>
+    <v-container class='d-flex align-center pa-5 h-100'>
         <v-row>
-            <v-col cols="12">
-                <h1>目前事項 {{currentText}}</h1>
-                <h1>剩餘時間 {{currentTime}}</h1>
+          <v-col cols='12' class="d-flex justify-center mb-4">
+          <h1 :style="{ color: $vuetify.theme.themes.light.secondary }">目前事項 {{currentText}}</h1>
+          </v-col>
+          <v-sheet
+          color="#F3E5F5"
+          :width='900'
+          :height='200'
+          elevation="4"
+          rounded
+          class="mx-auto d-flex align-center justify-center flex-wrap text-center">
+            <v-col cols="12" class="text-center">
+                <!-- <h1 :style="{ color: $vuetify.theme.themes.light.secondary }">目前事項 {{currentText}}</h1> -->
+                <h1 :style="{color: $vuetify.theme.themes.light.secondary, fontSize: '24px'}">剩餘時間</h1>
             </v-col>
-            <v-col cols="12">
+            <v-col cols="12" class="d-flex justify-center">
+              <div :style="{backgroundColor:'#FFFFFF',width:'100px', padding:'4px', fontSize: '24px', border:'1px solid black', borderRadius:'5px'}" class="">{{currentTime}}</div>
+            </v-col>
+            <v-col cols="12" class="text-center">
                 <v-btn icon="mdi-play" @click='startTimer' :disabled='status === STATUS.COUNTING || (currentItem.length === 0 && items.length === 0)'></v-btn>
-                <v-btn icon="mdi-pause" @click='pauseTimer' :disabled="status !== STATUS.COUNTING"></v-btn>
+                <v-btn icon="mdi-pause" @click='pauseTimer' :disabled="status !== STATUS.COUNTING" class="mx-3"></v-btn>
                 <v-btn icon="mdi-skip-next" @click='finishTimer' :disabled='currentItem.length === 0'></v-btn>
             </v-col>
+        </v-sheet>
         </v-row>
     </v-container>
 </template>
