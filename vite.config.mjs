@@ -25,6 +25,33 @@ export default defineConfig({
         cleanupOutdatedCaches: true,
         globPatterns: ['**/*.{js,css,html,jpg,png,svg,gif,woff,eot,woff2,ico,ttf}**'],
         ignoreURLParametersMatching: [/.*/]
+      },
+      manifest: {
+        // 名稱
+        name: '番茄鐘',
+        short_name: '番茄鐘',
+        // 工具列顏色
+        theme_color: '#f5c5f3',
+        // 啟動畫面背景色
+        background_color: '#f5c5f3',
+        // 啟動網址
+        start_url: './',
+        // PWA 範圍，超出範圍會用瀏覽器顯示
+        scope: './',
+        // 顯示方式
+        display: 'standalone',
+        icons: [
+          {
+            src: './android-chrome-192x192.png',
+            sizes: '192x192',
+            type: 'image/png'
+          },
+          {
+            src: './android-chrome-512x512.png',
+            sizes: '512x512',
+            type: 'image/png'
+          }
+        ]
       }
     }),
     VitePluginRadar({
