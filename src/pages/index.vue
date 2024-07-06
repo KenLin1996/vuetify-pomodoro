@@ -109,7 +109,7 @@ const currentText = computed(() => {
   } else if (items.value.length > 0) {
     return '點擊開始'
   } else {
-    return '沒有事項'
+    return '無'
   }
 })
 
